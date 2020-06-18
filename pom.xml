@@ -7,6 +7,11 @@
     <groupId>org.example</groupId>
     <artifactId>App</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.target>11.0</maven.compiler.target>
+        <maven.compiler.source>11.0</maven.compiler.source>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -25,8 +30,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -44,6 +49,12 @@
             <groupId>org.eclipse.paho</groupId>
             <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
             <version>1.1.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20190722</version>
         </dependency>
 
     </dependencies>
