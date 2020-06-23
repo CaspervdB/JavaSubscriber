@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.thethingsnetwork.data.common.Connection;
 import org.thethingsnetwork.data.common.messages.ActivationMessage;
@@ -19,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 
 @Controller
 @SpringBootApplication
+@RequestMapping("/")
 public class App
 {
     public static void main(String[] args)
@@ -37,6 +39,7 @@ public class App
                 try
                 {
                     UplinkMessage message = (UplinkMessage) data;
+                    System.out.println(message);
                     int co2 = (int)message.getPayloadFields().get("co2");
                     double temperature = (double)message.getPayloadFields().get("temperature");
                     double humidity = (double)message.getPayloadFields().get("humidity");
@@ -93,8 +96,8 @@ public class App
         SpringApplication.run(App.class, args);
     }
 
-    @RequestMapping("/")
+    @GetMapping
     public String index() {
-        return "Server is running!";
+        return "Server is running";
     }
 }
