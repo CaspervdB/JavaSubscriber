@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* org.thethingsnetwork.samples.mqtt.App
+web: java $JAVA_OPTS -cp target/App-1.0-SNAPSHOT-jar-with-dependencies.jar
