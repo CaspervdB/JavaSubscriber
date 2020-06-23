@@ -8,48 +8,30 @@
     <artifactId>App</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <maven.compiler.target>11.0</maven.compiler.target>
-        <maven.compiler.source>11.0</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <spring.version>5.1.3.RELEASE</spring.version>
+        <start-class>org.thethingsnetwork.samples.mqtt.App</start-class>
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <archive>
-                                <manifest>
-                                    <mainClass>
-                                        org.thethingsnetwork.samples.mqtt.App
-                                    </mainClass>
-                                </manifest>
-                            </archive>
-                            <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies</descriptorRef>
-                            </descriptorRefs>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.thethingsnetwork</groupId>
@@ -62,13 +44,82 @@
             <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
             <version>1.1.1</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20190722</version>
         </dependency>
-
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--            <plugin>-->
+    <!--                <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                <artifactId>maven-assembly-plugin</artifactId>-->
+    <!--                <executions>-->
+    <!--                    <execution>-->
+    <!--                        <phase>package</phase>-->
+    <!--                        <goals>-->
+    <!--                            <goal>single</goal>-->
+    <!--                        </goals>-->
+    <!--                        <configuration>-->
+    <!--                            <archive>-->
+    <!--                                <manifest>-->
+    <!--                                    <mainClass>-->
+    <!--                                        org.thethingsnetwork.samples.mqtt.App-->
+    <!--                                    </mainClass>-->
+    <!--                                </manifest>-->
+    <!--                            </archive>-->
+    <!--                            <descriptorRefs>-->
+    <!--                                <descriptorRef>jar-with-dependencies</descriptorRef>-->
+    <!--                            </descriptorRefs>-->
+    <!--                        </configuration>-->
+    <!--                    </execution>-->
+    <!--                </executions>-->
+    <!--            </plugin>-->
+    <!--            <plugin>-->
+    <!--                <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+    <!--                <configuration>-->
+    <!--                    <source>11</source>-->
+    <!--                    <target>11</target>-->
+    <!--                </configuration>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </build>-->
+
+    <!--    <dependencies>-->
+
+    <!--        <dependency>-->
+    <!--            <groupId>org.thethingsnetwork</groupId>-->
+    <!--            <artifactId>data-mqtt</artifactId>-->
+    <!--            <version>2.1.3</version>-->
+    <!--        </dependency>-->
+
+    <!--        <dependency>-->
+    <!--            <groupId>org.eclipse.paho</groupId>-->
+    <!--            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>-->
+    <!--            <version>1.1.1</version>-->
+    <!--        </dependency>-->
+    <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.json/json &ndash;&gt;-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.json</groupId>-->
+    <!--            <artifactId>json</artifactId>-->
+    <!--            <version>20190722</version>-->
+    <!--        </dependency>-->
+
+    <!--    </dependencies>-->
 
 </project>
